@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="single-column-table" author="your_name">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="postgresql,h2,mysql"/> <!-- Example: Only run on these databases -->
+        </preConditions>
+
+        <createTable tableName="simple_table">
+            <column name="code" type="VARCHAR(10)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="other-column-table" author="your_name">
+        <preConditions onFail="MARK_RAN">
+            <dbms type="oracle"/> <!-- Example: Only run on these databases -->
+        </preConditions>
+
+        <createTable tableName="simple_oracle">
+            <column name="code" type="VARCHAR(10)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
