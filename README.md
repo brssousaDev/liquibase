@@ -1,19 +1,19 @@
-# Teste Liquibase
+# Liquibase Test
 
-## 1. Criar pasta e baixar o projeto
+## 1. Create project folder
 
 ```bash
 mkdir liquibase
 cd liquibase
 ```
 
-## 2. Download da versão 4.19.1 (open communitary)
+## 2. Download version 4.19.1 (community edition)
 
 ```bash
 wget https://github.com/liquibase/liquibase/releases/download/v4.19.1/liquibase-4.19.1.tar.gz
 ```
 
-## 3. Descompactar
+## 3. Extract files
 
 ```bash
 tar -xzf liquibase-4.19.1.tar.gz
@@ -21,13 +21,13 @@ cd ..
 sudo mv liquibase /opt/liquibase
 ```
 
-## 4. Baixar driver do Postgres
+## 4. Download PostgreSQL driver
 
 ```bash
 wget https://jdbc.postgresql.org/download/postgresql-42.7.3.jar -O /opt/liquibase/lib/postgresql.jar
 ```
 
-## 5. Configurar variáveis de ambiente
+## 5. Configure environment variables
 
 ```bash
 echo 'export LIQUIBASE_HOME="/opt/liquibase"' >> ~/.bashrc
@@ -35,25 +35,25 @@ echo 'export PATH="$PATH:$LIQUIBASE_HOME"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-## 6. Testar o Liquibase
+## 6. Test Liquibase
 
 ```bash
 liquibase --version
 ```
 
-## 7. Execução do projeto
+## 7. Project execution
 
-### Iniciar PostgreSQL:
+### Start PostgreSQL:
 
 ```bash
 docker-compose up -d
 ```
 
-### Executar migrações:
+### Run migrations:
 
 ```bash
 /opt/liquibase/liquibase --defaultsFile=./liquibase.properties update
 ```
 
-**Observação:**  
-O Liquibase vai conectar ao banco e executar o primeiro migration que está em `changelog/v1.xml`.
+**Note:**  
+Liquibase will connect to the database and execute the first migration located in `changelog/v1.xml`.
