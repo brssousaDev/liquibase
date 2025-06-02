@@ -1,29 +1,45 @@
+Teste Liquibase
+
+crie uma pasta para baixar o projeto
 mkdir liquibase
 
+cd liquibase
+
+faça download da versao do liquibase 4.19.1 (open communitary)
 wget https://github.com/liquibase/liquibase/releases/download/v4.19.1/liquibase-4.19.1.tar.gz
 
+descompacta
 tar -xzf liquibase-4.19.1.tar.gz
 
+cd ..
 sudo mv liquibase /opt/liquibase
 
 
 BAIXAR DRIVER DO POSTGRES PARA USAR ESTE BANCO
 wget https://jdbc.postgresql.org/download/postgresql-42.7.3.jar -O /opt/liquibase/lib/postgresql.jar
 
-
+configure as variaveis de ambiente
 echo 'export LIQUIBASE_HOME="/opt/liquibase"' >> ~/.bashrc
 
 echo 'export PATH="$PATH:$LIQUIBASE_HOME"' >> ~/.bashrc
 
 source ~/.bashrc
 
+teste o liquibase
+liquibase --version
+
 --------------
 
 
 pasta do projeto
-
+na pasta que foi feito doanload deste projeto:
+executar postgres
+docker-compose up -d
 
 Execute a partir do seu projeto:
 /opt/liquibase/liquibase --defaultsFile=./liquibase.properties update
+
+o liquibase vai conectar ao banco e executar o primeiro migration que esta em chancelog/v1.xml
+
 
 
