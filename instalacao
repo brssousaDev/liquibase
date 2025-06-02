@@ -1,0 +1,29 @@
+mkdir liquibase
+
+wget https://github.com/liquibase/liquibase/releases/download/v4.19.1/liquibase-4.19.1.tar.gz
+
+tar -xzf liquibase-4.19.1.tar.gz
+
+sudo mv liquibase /opt/liquibase
+
+
+BAIXAR DRIVER DO POSTGRES PARA USAR ESTE BANCO
+wget https://jdbc.postgresql.org/download/postgresql-42.7.3.jar -O /opt/liquibase/lib/postgresql.jar
+
+
+echo 'export LIQUIBASE_HOME="/opt/liquibase"' >> ~/.bashrc
+
+echo 'export PATH="$PATH:$LIQUIBASE_HOME"' >> ~/.bashrc
+
+source ~/.bashrc
+
+--------------
+
+
+pasta do projeto
+
+
+Execute a partir do seu projeto:
+/opt/liquibase/liquibase --defaultsFile=./liquibase.properties update
+
+

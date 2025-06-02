@@ -9,12 +9,5 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  liquibase:
-    image: liquibase/liquibase
-    depends_on:
-      - postgres
-    volumes:
-      - ./changelog:/liquibase/changelog
-
 volumes:
   postgres_data:
